@@ -1,0 +1,277 @@
+//
+// Create Partner Form
+//
+
+// Variables
+$header-height: 65px;
+$footer-height: 45px;
+
+.custom-form {
+  flex-wrap: nowrap;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 0;
+  left: 0;
+
+  &.level-two-close {
+    .level {
+      &.one {
+        a.mask {
+          display: none;
+        }
+      }
+      &.two {
+        display: none;
+      }
+    }
+  }
+
+  &.level-two-open {
+    left: -34%;
+    .level {
+      &.one {
+        position: relative;
+        z-index: 1;
+        a.mask {
+          background-color: rgba($color: #000000, $alpha: 0.2);
+          position: absolute;
+          display: flex;
+          z-index: 0;
+          top: -1.5%;
+          left: -0.5%;
+          right: -0.5%;
+          bottom: -24px;
+        }
+        tr.tr-highlight {
+          position: relative;
+          z-index: 0;
+          &::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: 3px 0px 15px 8px rgba(0, 0, 0, 0.22);
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+      &.two {
+        position: fixed;
+        top: $header-height;
+        bottom: $footer-height;
+        right: -54%;
+        width: 54%;
+        height: calc(100vh - #{$header-height} - #{$footer-height});
+        overflow: auto;
+
+        animation-name: pull-from-right;
+        animation-delay: 0s;
+        animation-duration: 0.45s;
+
+        animation-fill-mode: forwards;
+
+        @keyframes pull-from-right {
+          from {
+            right: -54%;
+          }
+          to {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .bridge-show {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: calc(50% - 25px);
+      right: -62.5px;
+      z-index: 1;
+
+      font-family: "Material Icons";
+      font-size: 32px;
+      content: "arrow_forward";
+
+      background-color: #fff;
+      box-shadow: -1px 0 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 50px;
+      width: 50px;
+
+      border-radius: 50%;
+
+      animation-name: arrow_forward;
+      animation-delay: 0.3s;
+      animation-duration: 0.5s;
+
+      animation-fill-mode: forwards;
+
+      opacity: 0;
+
+      @keyframes arrow_forward {
+        from {
+          opacity: 0;
+          right: -42.5px;
+        }
+        to {
+          opacity: 1;
+          right: -62.5px;
+        }
+      }
+    }
+  }
+
+  .branding {
+    .form-group {
+      margin-bottom: 12px;
+      .image-input {
+        [data-action="change"] {
+          right: -2px;
+          top: -4px;
+        }
+        .image-input-wrapper,
+        .render-loading svg {
+          height: 64px !important;
+          width: 64px !important;
+          border-radius: 50%;
+        }
+        .render-loading svg {
+          margin-bottom: 4px;
+        }
+      }
+    }
+    .preview {
+      padding-left: 0;
+      .card.card-custom.card-stretch {
+        height: calc(100% - 35px);
+      }
+      img {
+        max-height: 64px;
+        max-width: 80%;
+      }
+      .favicon {
+        background-color: #fff;
+        border-radius: 100%;
+        border: 2px solid #fff;
+        justify-content: center;
+        display: flex;
+        min-height: 35px;
+        position: relative;
+        z-index: 2;
+        img {
+          width: 64px;
+          border-radius: 100%;
+          position: absolute;
+          bottom: -35px;
+        }
+      }
+      .logo {
+        min-height: 155px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 16.5px;
+        padding-bottom: 16.5px;
+        &.light {
+          padding-top: 42.5px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          img {
+            margin-bottom: 10px;
+          }
+        }
+        &.dark {
+          background-color: #f9f9f9;
+        }
+      }
+    }
+  }
+
+  .fees {
+    .nav-tabs {
+      .nav-item {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        &:not(.default) {
+          span {
+            &.name {
+              display: none;
+            }
+          }
+        }
+        &.default {
+          span {
+            &.img {
+              display: none;
+            }
+          }
+        }
+        .nav-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px;
+          color: #1e1e1e;
+          padding: 10px;
+          font-weight: 500;
+          font-size: 14px;
+          min-height: 54px;
+          &.active {
+            background-color: #f8faff;
+            border-bottom-color: #f8faff;
+          }
+          .img {
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            margin: 0 6px 0 0;
+            background: #fff url() center no-repeat;
+            background-size: contain;
+            display: flex;
+            border: 0 solid #e5eaee;
+          }
+        }
+      }
+    }
+    .tab-content {
+      background-color: #f8faff;
+      border: 1px solid #e5eaee;
+      border-top-width: 0;
+      padding: 0;
+      margin-bottom: 27px;
+      border-bottom-left-radius: 0.42rem;
+      border-bottom-right-radius: 0.42rem;
+      .c-p-table {
+        background-color: transparent;
+        table {
+          tr {
+            &:first-child {
+              td {
+                border-top-width: 0;
+              }
+            }
+            td {
+              border-top-color: #eaeaea;
+              padding: 16px 9px;
+
+              &.field {
+                width: 195px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

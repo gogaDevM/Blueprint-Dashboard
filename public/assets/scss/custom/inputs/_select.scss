@@ -1,0 +1,53 @@
+//
+// select
+//
+
+.select-wrapper {
+    position: relative;
+    z-index: 0;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 1px;
+      pointer-events: none;
+      padding: 8px;
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: url(../../../css/media/icons/svg/arrow.svg) center no-repeat;
+      opacity: 0.2;
+    }
+  
+    &:hover:before {
+      opacity: .3;
+    }
+  
+    &:focus:before, &:active:before {
+      opacity: 1;
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      right: 36px;
+      top: 8px;
+      pointer-events: none;
+      display: inline-block;
+      width: 1px;
+      height: 22px;
+      background-color: hsl(0, 0%, 80%);
+    }
+  
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding-right: 42px;
+  
+      &::-ms-expand {
+        display: none;
+      }
+    }
+  }

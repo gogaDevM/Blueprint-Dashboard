@@ -1,0 +1,31 @@
+const apiBase = process.env.NEXT_PUBLIC_API_BASE;
+
+export const Api = {
+  Base: apiBase,
+  User: {
+    Login: `${apiBase}/auth/login`,
+    Logout: `${apiBase}/auth/logout`,
+    Refresh: `${apiBase}/auth/refresh`,
+    ForgotPassword: `${apiBase}/auth/forgot-password`,
+    ResetPassword: `${apiBase}/auth/reset-password`,
+  },
+  Companies: `${apiBase}/companies`,
+  CompanyMembers: `${apiBase}/company-members`,
+  Jobs: `${apiBase}/jobs`,
+  JobTypes: `${apiBase}/jobtypes`,
+  JobsFilters: `${apiBase}/admin/jobs/filters`,
+  Applications: `${apiBase}/applications`,
+  Subscriptions: `${apiBase}/subscriptions`,
+  Partners: `${apiBase}/channels`,
+  Blocks: `${apiBase}/blocks`,
+  BlockContent: `${apiBase}/block-content`,
+  Sources: `${apiBase}/sources`,
+  Statuses: `${apiBase}/statuses`,
+  Packages: `${apiBase}/packages`,
+  Talent: `${apiBase}/talent`,
+  Channels: `${apiBase}/channels`,
+  Articles: `${apiBase}/articles`,
+  Categories: `${apiBase}/categories`,
+  Admin: `${apiBase}/admin`,
+  Images: `${apiBase}/images`,
+};

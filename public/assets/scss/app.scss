@@ -1,0 +1,19 @@
+@import url(./metronic-theme/_metronic-theme.scss);
+
+// Icons
+@import url(./npm-packages/material-ui/_material-ui.scss);
+
+// React
+@import url(./npm-packages/react-collapsible/react-collapsible.scss);
+@import url(./npm-packages/react-color/react-color.scss);
+@import url(./npm-packages/react-tooltip/react-tooltip.scss);
+@import url(./npm-packages/react-password-checklist/react-password-checklist.scss);
+@import "./npm-packages/react-collapsible/react-collapsible";
+@import "./npm-packages/react-json-pretty/react-json-pretty";
+@import "./npm-packages/react-select-async-paginate/react-select-async-paginate";
+
+// Custom
+@import url(./custom/_custom.scss);
+
+// Pages
+@import './pages/pages';

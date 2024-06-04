@@ -1,0 +1,88 @@
+//
+// Tables
+//
+
+table {
+  &.c-table {
+    tbody {
+      tr {
+        &:hover {
+          background-color: #fafbfc;
+        }
+        td {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+//table
+.c-p-table {
+  border-radius: 4px;
+  background: #fff;
+  padding: 12px;
+  .table {
+    thead {
+      color: #aeaeae;
+      th {
+        font-size: 12px;
+        text-transform: uppercase;
+        &.fees {
+          width: 230px;
+        }
+        &.processor {
+          width: 122px;
+        }
+        &.actions {
+          text-align: right;
+          width: 195px;
+        }
+      }
+    }
+    td {
+      vertical-align: middle;
+    }
+    select{
+      font-weight: 500;
+      color: #1E1E1E;
+      option{
+        // background: url() left top no-repeat;
+        // background-size: contain;
+        // padding-left: 22px;
+      }
+    }
+    tbody {
+      td {
+        color: #1e1e1e;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+        .name {
+          display: flex;
+          align-items: center;
+          .img {
+            width: 27px;
+            height: 27px;
+            margin-right: 10px;
+            background: #fff url() center no-repeat;
+            background-size: contain;
+            display: inline-block;
+          }
+          &.t-processor{
+            .img {
+              width: 20px;
+              height: 20px;
+              border-radius: 100%;
+              margin: 0 6px 0 0;
+              display: flex;
+            }
+          }
+        }
+        .c-btn{
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

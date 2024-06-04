@@ -1,0 +1,16 @@
+
+.custom-async-select__container{
+  // Edit Payment Modal
+  &.processor{
+    font-weight: 500;
+    font-size: 12px;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      border-radius: 100%;
+    }
+  }
+}
+
+//custom-async-select__option custom-async-select__option--is-focused custom-async-select__option--is-selected css-9gakcf-option

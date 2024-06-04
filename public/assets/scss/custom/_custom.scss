@@ -1,0 +1,19 @@
+@import url(./common/_common.scss);
+
+// Pages 
+@import "./pages/company-processors/_company-processors";
+@import "./pages/payment-attempts/_payment-attempts";
+
+// Custom Components
+@import url(./components/buttons/_buttons.scss);
+@import url(./components/left-menu/_left-menu.scss);
+@import url(./components/header-mobile/_header-mobile.scss);
+@import url(./components/form/_custom.scss);
+@import url(./components/modal/_modal.scss);
+
+// Custom feilds
+@import url(./inputs/_select.scss);
+@import url(./inputs/_switch-tabs.scss);
+
+// Tables
+@import url(./tables/_tables.scss);

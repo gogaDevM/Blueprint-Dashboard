@@ -1,0 +1,110 @@
+//
+// pages
+// payment-attempts
+
+// variables
+$c-table-attempts-height : calc(100vh - 66px);
+$pat-c1 : rgba(77, 89, 149, 0.06); // gray
+
+// mixins
+@mixin payment-attempts-css-scroll {
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #e0e2f0;
+    border-radius: 5px;
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar-thumb:hover> {
+    background: #e0e2f0;
+    opacity: 1;
+  }
+}
+
+.page {
+  &.payment-attempts {
+
+
+    .c-table-attempts,
+    .c-details{
+      height: $c-table-attempts-height;
+      overflow: auto;
+      @include payment-attempts-css-scroll;
+      padding-top:25px;
+      padding-bottom:25px;
+    }
+
+    //c-table-attempts
+    .c-table-attempts {
+      .ReactTable {
+        .rt-table {
+          @include payment-attempts-css-scroll;
+        }
+      }
+    }
+
+    //c-logs
+    .c-logs {
+      .card-body {
+        margin-left: 32px;
+        position: relative;
+        z-index: 0;
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: 2px;
+          height: calc(100% - 30px);
+          left: 0;
+          top: 15px;
+          background: $pat-c1;
+        }
+
+        .Collapsible__trigger {
+          padding-left: 56px;
+
+          .time {
+            position: absolute;
+            bottom: 4px;
+            left: -10px;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 12px;
+            left: -25px;
+            bottom: 15px;
+            background: $pat-c1;
+          }
+        }
+
+        .error-log {
+          .Collapsible__trigger {
+            color: #f64e60;
+            background-color: rgba(246, 78, 96, 0.1);
+          }
+        }
+
+        .Collapsible__contentInner {
+          pre {
+            padding: 0 0 16px 0;
+            margin: 0;
+            @include payment-attempts-css-scroll;
+          }
+        }
+      }
+    }
+
+  }
+}

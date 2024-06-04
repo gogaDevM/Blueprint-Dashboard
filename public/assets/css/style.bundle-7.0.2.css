@@ -1,0 +1,563 @@
+/* starts : Copying from metronic_v7.0.2 */
+
+.metr_v702 {}
+
+.metr_v702 .gutter-b {
+	margin-bottom: 25px;
+}
+
+.metr_v702 .card.card-custom {
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+	box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+	border: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	min-height: 70px;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-color: transparent;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 0.5rem;
+	margin-left: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon {
+	margin-right: 0.75rem;
+	line-height: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon i {
+	font-size: 1.25rem;
+	color: #80808F;
+	line-height: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon i:after,
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon i:before {
+	line-height: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon .svg-icon svg {
+	height: 24px;
+	width: 24px;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon .svg-icon svg g [fill] {
+	-webkit-transition: fill 0.3s ease;
+	transition: fill 0.3s ease;
+	fill: #80808F;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-icon .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill 0.3s ease;
+	transition: fill 0.3s ease;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title,
+.metr_v702 .card.card-custom>.card-header .card-title .card-label {
+	font-weight: 500;
+	font-size: 1.275rem;
+	color: #212121;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title .card-label {
+	margin: 0 0.75rem 0 0;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-title small {
+	color: #B5B5C3;
+	font-size: 1rem;
+}
+
+.metr_v702 .card.card-custom>.card-header .card-toolbar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 0.5rem 0;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-tabs-line {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-tabs-line .card-toolbar {
+	margin: 0;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-tabs-line .nav {
+	border-bottom-color: transparent;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-tabs-line .nav .nav-item {
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-tabs-line .nav .nav-link {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.metr_v702 .card.card-custom>.card-header.card-header-right {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
+
+.metr_v702 .card.card-custom>.card-body {
+	padding: 2rem 2.25rem;
+}
+
+.metr_v702 .card.card-custom>.card-footer {
+	background-color: transparent;
+}
+
+.metr_v702 .card.card-custom.card-stretch {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: stretch !important;
+	-ms-flex-align: stretch !important;
+	align-items: stretch !important;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: 100%;
+}
+
+.metr_v702 .card.card-custom.card-stretch.gutter-b {
+	height: calc(100% - 25px);
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-half {
+	height: 50%;
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-half.gutter-b {
+	height: calc(50% - 25px);
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-third {
+	height: 33.33%;
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-third.gutter-b {
+	height: calc(33.33% - 25px);
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-fourth {
+	height: 25%;
+}
+
+.metr_v702 .card.card-custom.card-stretch.card-stretch-fourth.gutter-b {
+	height: calc(25% - 25px);
+}
+
+.metr_v702 .card-rounded {
+	border-radius: 0.42rem;
+}
+
+.metr_v702 .svg-icon.svg-icon-white svg g [fill] {
+	-webkit-transition: fill 0.3s ease;
+	transition: fill 0.3s ease;
+	fill: #ffffff !important;
+}
+
+.metr_v702 .svg-icon.svg-icon-3x svg {
+	height: 3rem !important;
+	width: 3rem !important;
+}
+
+.metr_v702 .bgi-no-repeat {
+	background-repeat: no-repeat;
+}
+
+.metr_v702 .text-inverse-danger {
+	color: #ffffff !important;
+}
+
+.metr_v702 .text-muted {
+	color: #B5B5C3 !important;
+}
+
+.metr_v702 .font-weight-bold {
+	font-weight: 500 !important;
+}
+
+.metr_v702 .font-weight-bolder {
+	font-weight: 600 !important;
+}
+
+.metr_v702 h2,
+.metr_v702 .h2 {
+	font-size: 1.75rem;
+}
+
+@media (max-width: 1200px) {
+	.metr_v702 h2,
+	.metr_v702 .h2 {
+		font-size: calc(1.3rem + 0.6vw);
+	}
+}
+
+.metr_v702 .font-size-h5 {
+	font-size: 1.25rem !important;
+}
+
+.metr_v702 .font-size-sm {
+	font-size: 0.925rem;
+}
+
+.metr_v702 .mt-5,
+.metr_v702 .my-5 {
+	margin-top: 1.25rem !important;
+}
+
+.metr_v702 .pb-40,
+.metr_v702 .py-40 {
+	padding-bottom: 10rem !important;
+}
+
+.metr_v702 .p-20 {
+	padding: 5rem !important;
+}
+
+.metr_v702 .pb-5,
+.metr_v702 .py-5 {
+	padding-bottom: 1.25rem !important;
+}
+
+.metr_v702.flex-root {
+	-webkit-box-flex: 1;
+	flex: 1;
+	-ms-flex: 1 0 0px;
+}
+
+.metr_v702 .flex-column-auto {
+	-webkit-box-flex: 0;
+	-ms-flex: none;
+	flex: none;
+}
+
+.metr_v702 .flex-column-fluid {
+	-webkit-box-flex: 1;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+.metr_v702 .flex-row-auto {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+}
+
+.metr_v702 .flex-center {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+@media (min-width: 992px) {
+	.metr_v702 .pt-lg-40,
+	.metr_v702 .py-lg-40 {
+		padding-top: 10rem !important;
+	}
+}
+
+.metr_v702 .mb-10,
+.metr_v702 .my-10 {
+	margin-bottom: 2.5rem !important;
+}
+
+.metr_v702 .pb-13,
+.metr_v702 .py-13 {
+	padding-bottom: 3.25rem !important;
+}
+
+.metr_v702 .font-size-h4 {
+	font-size: 1.35rem !important;
+}
+
+.metr_v702 .max-h-100px {
+	max-height: 100px !important;
+}
+
+.metr_v702 .text-dark {
+	color: #181C32 !important;
+}
+
+.metr_v702 .text-primary {
+	color: #3699FF !important;
+}
+
+.metr_v702 a.text-primary:hover,
+.metr_v702 a.text-primary:focus {
+	color: #0073e9 !important;
+}
+
+.metr_v702 .bgi-position-x-center {
+	background-position-x: center;
+}
+
+.metr_v702 .bgi-position-y-bottom {
+	background-position-y: bottom;
+}
+
+.metr_v702 .flex-row-fluid {
+	-webkit-box-flex: 1;
+	flex: 1 auto;
+	-ms-flex: 1 0 0px;
+	min-width: 0;
+}
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+	.flex-row-fluid {
+		min-width: none;
+	}
+}
+
+.metr_v702 .pl-25,
+.metr_v702 .px-25 {
+	padding-left: 6.25rem !important;
+}
+
+.metr_v702 .pr-25,
+.metr_v702 .px-25 {
+	padding-right: 6.25rem !important;
+}
+
+@media (min-width: 992px) {
+	.metr_v702 .font-size-h1-lg {
+		font-size: 2rem !important;
+	}
+}
+
+.metr_v702 .form-group {
+	margin-bottom: 1.75rem;
+}
+
+.metr_v702 .font-size-h6 {
+	font-size: 1.175rem !important;
+}
+
+.metr_v702 .pt-7,
+.metr_v702 .py-7 {
+	padding-top: 1.75rem !important;
+}
+
+.metr_v702 .pb-7,
+.metr_v702 .py-7 {
+	padding-bottom: 1.75rem !important;
+}
+
+.metr_v702 .pr-6,
+.metr_v702 .px-6 {
+	padding-right: 1.5rem !important;
+}
+
+.metr_v702 .pl-6,
+.metr_v702 .px-6 {
+	padding-left: 1.5rem !important;
+}
+
+.metr_v702 .form-control {
+	display: block;
+	width: 100%;
+	height: calc(1.5em + 1.3rem + 2px);
+	padding: 0.65rem 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #3F4254;
+	background-color: #ffffff;
+	background-clip: padding-box;
+	border: 1px solid #E4E6EF;
+	border-radius: 0.42rem;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.metr_v702 .form-control {
+		-webkit-transition: none;
+		transition: none;
+	}
+}
+
+.metr_v702 .form-control::-ms-expand {
+	background-color: transparent;
+	border: 0;
+}
+
+.metr_v702 .form-control:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #3F4254;
+}
+
+.metr_v702 .form-control:focus {
+	color: #3F4254;
+	background-color: #ffffff;
+	border-color: #69b3ff;
+	outline: 0;
+}
+
+.metr_v702 .form-control::-webkit-input-placeholder {
+	color: #B5B5C3;
+	opacity: 1;
+}
+
+.metr_v702 .form-control::-moz-placeholder {
+	color: #B5B5C3;
+	opacity: 1;
+}
+
+.metr_v702 .form-control:-ms-input-placeholder {
+	color: #B5B5C3;
+	opacity: 1;
+}
+
+.metr_v702 .form-control::-ms-input-placeholder {
+	color: #B5B5C3;
+	opacity: 1;
+}
+
+.metr_v702 .form-control::placeholder {
+	color: #B5B5C3;
+	opacity: 1;
+}
+
+.metr_v702 .form-control:disabled,
+.metr_v702 .form-control[readonly] {
+	background-color: #F3F6F9;
+	opacity: 1;
+}
+
+.metr_v702 .form-control.form-control-solid {
+	background-color: #F3F6F9 !important;
+	border-color: #F3F6F9 !important;
+	color: #3F4254 !important;
+	-webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+}
+
+.metr_v702 .form-control.form-control-solid::-moz-placeholder {
+	color: #B5B5C3 !important;
+	opacity: 1;
+}
+
+.metr_v702 .form-control.form-control-solid:-ms-input-placeholder {
+	color: #B5B5C3 !important;
+}
+
+.metr_v702 .form-control.form-control-solid::-webkit-input-placeholder {
+	color: #B5B5C3 !important;
+}
+
+.metr_v702 .form-control.form-control-solid:active,
+.metr_v702 .form-control.form-control-solid.active,
+.metr_v702 .form-control.form-control-solid:focus,
+.metr_v702 .form-control.form-control-solid.focus {
+	background-color: #EBEDF3 !important;
+	border-color: #EBEDF3 !important;
+	color: #3F4254 !important;
+	-webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+	transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+}
+
+.metr_v702 .rounded-lg {
+	border-radius: 0.85rem !important;
+}
+
+.metr_v702 .mt-n5,
+.metr_v702 .my-n5 {
+	margin-top: -1.25rem !important;
+}
+
+.metr_v702 .pt-5,
+.metr_v702 .py-5 {
+	padding-top: 1.25rem !important;
+}
+
+@media (min-width: 992px) {
+	.metr_v702 .pb-lg-0,
+	.metr_v702 .py-lg-0 {
+		padding-bottom: 0 !important;
+	}
+}
+
+.metr_v702 .pl-8,
+.metr_v702 .px-8 {
+	padding-left: 2rem !important;
+}
+
+.metr_v702 .pr-8,
+.metr_v702 .px-8 {
+	padding-right: 2rem !important;
+}
+
+.metr_v702 .pt-4,
+.metr_v702 .py-4 {
+	padding-top: 1rem !important;
+}
+
+.metr_v702 .pb-4,
+.metr_v702 .py-4 {
+	padding-bottom: 1rem !important;
+}
+@media (min-width: 992px) {
+	.metr_v702 .pt-lg-0,
+	.metr_v702 .py-lg-0 {
+		padding-top: 0 !important;
+	}
+}
+
+.p-7{
+	padding: 1.75rem !important; 
+}
+
+/* end : Copying from metronic_v7.0.2 */

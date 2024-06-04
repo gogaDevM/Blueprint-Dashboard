@@ -1,0 +1,53 @@
+//
+// Switch Tabs
+//
+
+.switch-tabs {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 11px;
+  input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    + .tabs {
+      background-color: #eef0f8;
+      border-radius: 60px !important;
+      padding: 6px;
+      font-weight: 600;
+      display: flex;
+      div {
+        color: #333333;
+        background-color: transparent;
+        border-radius: 48px !important;
+        width: 50%;
+        padding: 6.5px;
+        text-align: center;
+        &.one {
+          color: #fff;
+          background-color: #3699ff;
+        }
+      }
+    }
+    &:checked {
+      + .tabs {
+        div {
+          &.one {
+            color: #333333;
+            background-color: transparent !important;
+          }
+          &.two {
+            color: #fff;
+            background-color: #3699ff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/* starts, react-color */
+
+// variables
+$height: 30px;
+
+.react-color {
+  .color-box {
+    height: $height;
+    width: 150px;
+    position: relative;
+    outline: none;
+    display: inline-block;
+    border-radius: 4px;
+    margin-right: 0;
+    margin-left: 0;
+    box-shadow: rgb(240, 240, 240) 0px 0px 0px 1px inset;
+    box-sizing: content-box;
+    background-color: white;
+    a {
+      display: inline-block;
+      width: 100%;
+      .color {
+        height: $height;
+        width: 30px;
+        float: left;
+        text-align: center;
+        vertical-align: middle;
+        line-height: $height;
+        font-size: 14px;
+        font-weight: 400;
+        background: rgb(230, 230, 230);
+        color: rgb(152, 161, 164);
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        border:1px solid #f0f0f0;
+      }
+      .text {
+        height: $height;
+        float: left;
+        vertical-align: middle;
+        line-height: $height;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #464e5f;
+      }
+    }
+    .pop {
+      position: absolute;
+      z-index: 2;
+      top: 34px;
+      left:0;
+      .mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+/* end, react-color */

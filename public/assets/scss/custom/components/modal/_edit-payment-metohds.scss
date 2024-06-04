@@ -1,0 +1,44 @@
+//
+// edit-payment-metohds
+//
+
+.c-modal {
+  &.edit-payment-methods {
+    .modal-title {
+      font-size: 14px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-height: 27px;
+        margin-right: 8px;
+      }
+      span {
+        display: flex;
+        height: 31px;
+        width: 1px;
+        background: #cecece;
+        margin: 0 17px;
+        text-indent: -9999px;
+      }
+    }
+    .col-form-label {
+      font-weight: 500;
+      font-size: 14px;
+      padding-top: 0;
+    }
+    select {
+      font-weight: 500;
+      font-size: 12px;
+    }
+    .select-wrapper{
+      z-index: 1;
+    }
+    .form-group {
+      .col {
+        padding-right: 6.75px;
+        padding-left: 6.75px;
+      }
+    }
+  }
+}

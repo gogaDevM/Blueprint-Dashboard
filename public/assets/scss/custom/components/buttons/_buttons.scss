@@ -1,0 +1,43 @@
+.c-btn{
+  
+  // Btn Outline Primary
+  &.btn-light-primary {
+    background-color: #E4EEFC !important;
+    border-color: #E4EEFC !important;
+    color: #007BFF !important;
+    [class^="material-icons"] {
+      color: #007BFF;
+      font-size: 16px;
+      margin-right: 4px;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      &:not(.btn-active){
+        [class^="material-icons"] {
+          color: white;
+        }
+      }
+    }
+    
+  }
+
+  &.c-btn-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.fw-500{
+    font-weight: 500;
+  }
+
+}
+
+// Button Group
+.buttons-grid {
+  display: inline-grid;
+  grid-gap: 16px;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
