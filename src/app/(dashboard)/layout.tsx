@@ -29,8 +29,8 @@ const Layout: React.FC<CustomLayoutProps> = ({ children }) => {
 
   return (
     <>
-      {/* <div className="d-flex flex-column flex-root">
-        <div className="page d-flex flex-row flex-column-fluid"> */}
+      <div className="d-flex flex-column flex-root">
+        <div className="page d-flex flex-row flex-column-fluid">
           <LeftMenu SECTIONS={SECTIONS} />
           <div
             className="wrapper d-flex flex-column flex-row-fluid"
@@ -41,7 +41,7 @@ const Layout: React.FC<CustomLayoutProps> = ({ children }) => {
               className="content d-flex flex-column flex-column-fluid"
               id="kt_content"
             >
-              <div className="post d-flex flex-column-fluid" id="kt_">
+              <div className="post d-flex flex-column-fluid" id="kt_post">
                 <div id="kt_content_container" className="container-xxl">
                   {children}
                 </div>
@@ -50,8 +50,8 @@ const Layout: React.FC<CustomLayoutProps> = ({ children }) => {
             <Footer />
           </div>
           <ToastContainer />
-        {/* </div>
-      </div> */}
+        </div>
+      </div>
     </>
   );
 };

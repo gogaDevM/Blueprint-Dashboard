@@ -630,3 +630,17 @@ ul.nameservers,
 .payment-attempts .custom-async-select__container {
   background-color: transparent !important;
 }
+
+/* start: Notify */
+
+.Toastify__toast--success {
+  background: #07bc0c;
+}
+
+.Toastify__toast--success {
+  background-color: #003734 !important;
+  color: white !important;
+  text-align: center;
+}
+
+/* end: Notify */

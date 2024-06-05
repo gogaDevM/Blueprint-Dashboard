@@ -1,13 +1,6 @@
-// import React, { useState } from "react";
-
-import { signOut, useSession } from "next-auth/react";
+import React, { useState } from "react";
 
 import { useRouter } from "next/navigation";
-
-import Link from "next/link";
-
-const LOGO_DARK =
-  "https://d27hyvh7xqsx55.cloudfront.net/images/site/logo_dark.png";
 
 const Header = () => {
   const router = useRouter();
@@ -16,6 +9,9 @@ const Header = () => {
     router.push("/login");
   };
 
+  const initial = "B";
+  const username = "Blueprint";
+
   return (
     <div id="kt_header" className="components header header-fixed">
       <div
@@ -23,6 +19,7 @@ const Header = () => {
           "container-fluid d-flex align-items-stretch justify-content-between"
         }
       >
+        <div className="statistics"></div>
         <div className="topbar">
           <div className="dropdown">
             <div
@@ -75,10 +72,12 @@ const Header = () => {
                     paddingBottom: 5,
                   }}
                 >
-                  <span className="font-size-h3 font-weight-boldest">B</span>
+                  <span className="font-size-h3 font-weight-boldest">
+                    {initial}
+                  </span>
                 </div>
                 <div className="text-dark m-0 flex-grow-1 mr-3 font-size-h5">
-                  Blueprint
+                  {username}
                 </div>
               </div>
               <div className="separator separator-solid"></div>
