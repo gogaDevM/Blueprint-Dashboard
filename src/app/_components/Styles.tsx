@@ -8,12 +8,12 @@ const Styles: React.FC = () => {
       <link
         rel="shortcut icon"
         type="image/x-icon"
-        href={`/images/favicon.ico`}
+        href={`/assets/media/icons/favicon.ico`}
       />
 
       <link
         rel="stylesheet"
-        href={`./assets/css/metronic-7.0.2/pages/login/login-1.css`}
+        href={`/assets/css/metronic-7.0.2/pages/login/login-1.css`}
       />
 
       <link rel="stylesheet" href={`/assets/css/style.bundle.css`} />
@@ -29,7 +29,7 @@ const Styles: React.FC = () => {
         rel="stylesheet"
         href={`/assets/css/themes/layout/header/menu/light.css`}
       />
-          <link
+      <link
         rel="stylesheet"
         href={`/assets/css/themes/layout/brand/light.css`}
       />

@@ -49,44 +49,44 @@ export const options: NextAuthOptionsCallback = (
 
             console.log("RES", response);
 
-            // const responseCookies = response.headers["set-cookie"];
+            const responseCookies = response.headers["set-cookie"];
 
-            // const parsedCookies = Cookies.parseCookies(responseCookies);
+            const parsedCookies = Cookies.parseCookies(responseCookies);
 
-            // const accessTokenCookie: any = Cookies.findCookie(
-            //   parsedCookies,
-            //   "X-Auth-Access-Token"
-            // );
-            // const refreshTokenCookie: any = Cookies.findCookie(
-            //   parsedCookies,
-            //   "X-Auth-Refresh-Token"
-            // );
+            const accessTokenCookie: any = Cookies.findCookie(
+              parsedCookies,
+              "X-Auth-Access-Token"
+            );
+            const refreshTokenCookie: any = Cookies.findCookie(
+              parsedCookies,
+              "X-Auth-Refresh-Token"
+            );
 
-            // try {
-            //   cookies().set({
-            //     name: accessTokenCookie.name,
-            //     value: accessTokenCookie.value,
-            //     path: accessTokenCookie.path,
-            //     maxAge: accessTokenCookie.maxAge,
-            //     expires: accessTokenCookie.expires,
-            //     httpOnly: true,
-            //     sameSite: "none",
-            //     secure: true,
-            //   });
+            try {
+              cookies().set({
+                name: accessTokenCookie.name,
+                value: accessTokenCookie.value,
+                path: accessTokenCookie.path,
+                maxAge: accessTokenCookie.maxAge,
+                expires: accessTokenCookie.expires,
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+              });
 
-            //   cookies().set({
-            //     name: refreshTokenCookie.name,
-            //     value: refreshTokenCookie.value,
-            //     path: refreshTokenCookie.path,
-            //     maxAge: refreshTokenCookie.maxAge,
-            //     expires: refreshTokenCookie.expires,
-            //     httpOnly: true,
-            //     sameSite: "none",
-            //     secure: true,
-            //   });
-            // } catch (error) {
-            //   console.log("ERROR: Cookies", error);
-            // }
+              cookies().set({
+                name: refreshTokenCookie.name,
+                value: refreshTokenCookie.value,
+                path: refreshTokenCookie.path,
+                maxAge: refreshTokenCookie.maxAge,
+                expires: refreshTokenCookie.expires,
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+              });
+            } catch (error) {
+              console.log("ERROR: Cookies", error);
+            }
 
             const responseData = response.data;
 

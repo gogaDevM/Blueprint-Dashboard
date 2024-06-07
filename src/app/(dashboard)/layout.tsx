@@ -11,6 +11,8 @@ import LeftMenu from "@/_components/LeftMenu";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
+import AuthenticatedRoute from "@/_components/common/AuthenticatedRoute";
+
 export interface CustomLayoutProps {
   children: ReactNode;
 }
@@ -28,7 +30,7 @@ const Layout: React.FC<CustomLayoutProps> = ({ children }) => {
   const SECTIONS: any[] = [];
 
   return (
-    <>
+    <AuthenticatedRoute>
       <div className="d-flex flex-column flex-root">
         <div className="page d-flex flex-row flex-column-fluid">
           <LeftMenu SECTIONS={SECTIONS} />
@@ -52,7 +54,7 @@ const Layout: React.FC<CustomLayoutProps> = ({ children }) => {
           <ToastContainer />
         </div>
       </div>
-    </>
+    </AuthenticatedRoute>
   );
 };
 

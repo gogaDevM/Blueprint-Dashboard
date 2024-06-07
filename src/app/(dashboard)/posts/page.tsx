@@ -6,12 +6,12 @@ import React, { useState } from "react";
 
 import { NextPageWithLayout } from "@/_types/page";
 
-const Users = dynamic(() => import("@components/tables/Users"), {
+const Posts = dynamic(() => import("@components/tables/Posts"), {
   ssr: false,
 });
 
-const UsersPage: NextPageWithLayout = () => {
-  return <Users />;
+const PostsPage: NextPageWithLayout = () => {
+  return <Posts />;
 };
 
-export default UsersPage;
+export default PostsPage;

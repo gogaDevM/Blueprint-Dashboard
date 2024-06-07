@@ -2,11 +2,14 @@
 
 import React, { useState } from "react";
 
-import { signIn } from "next-auth/react";
+import axios from "axios";
 
 import { useRouter } from "next/navigation";
 
+import { Api } from "@/_constants/Api";
+
 import Notify from "@utils/Notify";
+import AuthTokens from "@/_utils/AuthTokens";
 
 import LoginForm from "@forms/LoginForm";
 import ForgotPasswordForm from "@forms/ForgotPasswordForm";
@@ -26,29 +29,30 @@ const Login: React.FC<LoginProps> = () => {
   const router = useRouter();
 
   const handleSubmit = async (data: LoginFormInputs) => {
-    const { username, password } = data;
-
-    console.log("DATA", data);
+    const { email, password } = data;
 
     try {
-      const res = await signIn("credentials", {
-        username,
-        password,
-        redirect: false,
-      });
+      const res = await axios.post(Api.User.Login, { email, password });
 
-      if (res?.ok) {
+      console.log("res", res.data.tokens);
+
+      const { access, refresh } = res.data.tokens;
+
+      if (res.status === 200) {
+        AuthTokens.saveTokens({
+          accessToken: access,
+          refreshToken: refresh,
+        });
+
         console.log("Successful login");
-      }
 
-      if (res?.error) {
+        router.replace("/");
+      } else {
         Notify.error("Invalid Credentials");
-        return;
       }
-
-      router.replace("/");
     } catch (error) {
       console.log(error);
+      Notify.error("An error occurred during login");
     }
   };
 

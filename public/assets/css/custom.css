@@ -644,3 +644,238 @@ ul.nameservers,
 }
 
 /* end: Notify */
+
+/* Start TABLE Styles */
+.ReactTable {
+  border: none !important;
+}
+
+.ReactTable .rt-table {
+  flex: auto 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: auto;
+}
+
+.Table__pagination .switchPageButton:hover,
+.Table__pageButton:hover,
+.Table__pageButton--active {
+  background: #003734;
+  /*color: #f1faff;*/
+}
+
+.rt-td {
+  color: #6c7293;
+  padding: 0;
+}
+
+.rt-tr-group:hover {
+  background-color: #fafbfc;
+}
+
+.-sort-desc,
+.-sort-asc {
+  box-shadow: none !important;
+}
+
+.rt-thead .rt-resizable-header-content {
+  color: #b5b5c3 !important;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.rt-thead .-sort-asc .rt-resizable-header-content,
+.rt-thead .-sort-desc .rt-resizable-header-content {
+  color: #003734 !important;
+}
+
+.rt-thead .rt-th {
+  padding: 0.75rem 1rem !important;
+}
+
+.-sort-asc .rt-resizer::before {
+  content: "\2191";
+  color: #003734;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+.-sort-desc .rt-resizer::after {
+  content: "\2193";
+  color: #003734;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+.ReactTable .rt-resizer {
+  top: 5px;
+}
+
+.ReactTable .rt-td {
+  align-self: center;
+}
+
+.Table__page .select-page:hover {
+  background-color: #003734;
+}
+
+.rt-resizable-header-content {
+  color: #595d6e !important;
+  font-weight: 500;
+}
+
+.ReactTable .rt-expander:after {
+  border-top: 7px solid #003734 !important;
+}
+
+.ReactTable .rt-thead .rt-th,
+.ReactTable .rt-thead .rt-td {
+  border: 0 !important;
+}
+
+.ReactTable .rt-thead.-header {
+  padding-bottom: 0 !important;
+}
+
+.ReactTable .rt-tr {
+  padding-top: unset !important;
+  padding-bottom: unset !important;
+  overflow-x: scroll;
+}
+
+.ReactTable .rt-tbody .rt-td {
+  border-right: unset !important;
+  border-bottom: 1px solid whitesmoke !important;
+}
+
+.ReactTable .switchPageButton,
+.ReactTable .Table__pageButton {
+  border-radius: 50% !important;
+  font-size: unset !important;
+}
+
+.Table__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Table__itemCount {
+  /* margin-top: 10px; */
+  font-size: 14px;
+}
+
+.Table__pagination {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 10px;
+}
+
+.Table__page {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 15px;
+}
+
+.Table__visiblePagesWrapper {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Table__pageButton {
+  font-size: 15px;
+  outline: none;
+  border: none;
+  margin-left: 2px;
+  margin-right: 2px;
+  height: 29px;
+  width: 29px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #93a2dd;
+  cursor: pointer;
+}
+
+.Table__pageButton--active,
+.Table__pageButton:hover {
+  color: #fff;
+  font-weight: bold;
+  -webkit-transition: background-color 3.3s ease;
+  background-color: #074785;
+}
+
+.switchPageButton {
+  font-size: 15px;
+  outline: none;
+  border: none;
+  margin-left: 2px;
+  margin-right: 2px;
+  height: 29px;
+  width: 29px;
+  border-radius: 5px;
+  background-color: #f0f3ff;
+  color: #93a2dd;
+  cursor: pointer;
+}
+
+.switchPageButton:disabled {
+  cursor: not-allowed;
+  color: #e0e5f5;
+  background-color: #fbfcff;
+}
+
+.switchPageButton:disabled:hover {
+  cursor: not-allowed;
+  color: #f1f4fc;
+  font-weight: normal;
+  background-color: #fbfcff;
+}
+
+.switchPageButton:active,
+.switchPageButton:hover {
+  color: #fff;
+  background-color: #074785;
+}
+
+.select-page-text {
+  color: #05223d;
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.select-page {
+  border-width: 0;
+  color: #93a2dd;
+  font-size: 13px;
+  font-weight: 600;
+  height: 29px;
+  padding-left: 10px;
+  width: 60px;
+  border-radius: 5px;
+  background: url("../media/icons/chevron-down.svg") no-repeat right #f0f3ff;
+  -webkit-appearance: none;
+}
+
+.select-page option {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.select-page:hover {
+  border-width: 0;
+  color: #fff;
+  background-color: #074785;
+}
+
+.select-page:active {
+  border-width: 0;
+  color: #fff;
+  background-color: #074785;
+  -webkit-appearance: none;
+}
+/* End TABLE Styles */

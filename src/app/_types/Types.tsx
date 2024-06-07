@@ -25,7 +25,8 @@ export interface User extends DefaultUser {
 export interface JobsProps {}
 
 export interface LoginFormInputs {
-  username: string;
+  email: string;
+  username?: string;
   password: string;
 }
 

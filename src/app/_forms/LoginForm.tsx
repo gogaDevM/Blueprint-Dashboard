@@ -14,7 +14,7 @@ interface LoginFormProps {
 }
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string().required("Username is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string().required("Password is required"),
   //TODO: Update
   // .min(6, "Password must be at least 6 characters")
@@ -63,9 +63,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <input
           className="form-control form-control-lg form-control-solid"
           type="text"
-          // placeholder="Email"
           autoComplete="off"
-          {...register("username")}
+          {...register("email")}
         />
       </div>
       {errors.password && (
@@ -89,7 +88,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <input
           className="form-control form-control-lg form-control-solid"
           type="password"
-          // placeholder="Password"
           autoComplete="off"
           {...register("password")}
         />
