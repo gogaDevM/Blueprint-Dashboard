@@ -8,8 +8,8 @@ import { useRouter } from "next/navigation";
 
 import { Api } from "@/_constants/Api";
 
+import AuthManager from "@/_utils/AuthManager";
 import Notify from "@utils/Notify";
-import AuthTokens from "@/_utils/AuthTokens";
 
 import LoginForm from "@forms/LoginForm";
 import ForgotPasswordForm from "@forms/ForgotPasswordForm";
@@ -31,28 +31,19 @@ const Login: React.FC<LoginProps> = () => {
   const handleSubmit = async (data: LoginFormInputs) => {
     const { email, password } = data;
 
+    console.log("DATA", data);
+
     try {
-      const res = await axios.post(Api.User.Login, { email, password });
+      const res = await AuthManager.login(email, password);
 
-      console.log("res", res.data.tokens);
+      console.log("RES", res);
 
-      const { access, refresh } = res.data.tokens;
+      console.log("Successful login");
 
-      if (res.status === 200) {
-        AuthTokens.saveTokens({
-          accessToken: access,
-          refreshToken: refresh,
-        });
-
-        console.log("Successful login");
-
-        router.replace("/");
-      } else {
-        Notify.error("Invalid Credentials");
-      }
-    } catch (error) {
+      router.replace("/");
+    } catch (error: any) {
       console.log(error);
-      Notify.error("An error occurred during login");
+      Notify.error(error.message);
     }
   };
 

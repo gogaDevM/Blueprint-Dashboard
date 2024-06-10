@@ -1,94 +1,200 @@
-"use client"
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Params } from "@/_types/common/FetchHelper"
+import AuthManager from "./AuthManager";
 
-import { CONFIG } from "./Constants"
+import Mode from "./Mode";
 
-import { iterateObject } from "./Helpers"
+import General from "./General";
 
-import { axiosInstance } from "./AxiosInstance"
+const PAGE_LIMIT = 20;
 
-const parseResponse = async (response: Response) => {
-    if (response.status == CONFIG.STATUS_CODES.NO_CONTENT) {
-        return null
-    } else if (!response.ok) {
-        const json = await response.json()
-        throw new Error(parseResponseError(json))
+const handleValidateTokens = async (validateTokens: boolean) => {
+  if (validateTokens) {
+    await AuthManager.validateTokens();
+  }
+};
+
+const hasError = ({ code, success }: { code: number; success: boolean }) => {
+  return code < 200 || code > 299 || !success;
+};
+
+const getError = (responseJson: any) => {
+  let error = null;
+  if (responseJson.message) {
+    error = responseJson.message;
+  } else if (responseJson.non_field_errors) {
+    error =
+      responseJson.non_field_errors instanceof Array
+        ? responseJson.non_field_errors[0]
+        : responseJson.non_field_errors;
+  } else {
+    error = responseJson;
+  }
+
+  if (error && error.constructor === Object) {
+    error = parseError(error[Object.keys(error)[0]], Object.keys(error)[0]);
+  }
+
+  let message = "An unexpected error occurred";
+
+  if (error) {
+    message = error;
+  }
+
+  return { error, message };
+};
+const parseError = (error: any, key: string): string | undefined => {
+  if (error instanceof Array) {
+    if (error[0] instanceof Object) {
+      return parseError(error[0], key);
     }
-    try {
-        return await response.json()
-    } catch (error) {
-        return null
-    }
-}
-/**
- * Extracts and constructs an error message from a response object.
- *
- * This function iterates over the response object and constructs an error message.
- *
- * @param response - The response object containing error information.
- * @returns The constructed error message.
- */
-export const parseResponseError = (response: Response) => {
-    const errorMessage = iterateObject(response)
-    return errorMessage
-}
+    return `${General.snakeCaseToTitleCase(key)}: ${error[0]}`;
+  } else if (typeof error === "string") {
+    return `${General.snakeCaseToTitleCase(key)}: ${error}`;
+  } else if (error instanceof Object) {
+    return parseError(error[Object.keys(error)[0]], Object.keys(error)[0]);
+  }
+};
 
-/**
- * Appends query parameters to a URL.
- *
- * This function creates a new URL object based on the provided URL and appends the given
- * query parameters. Existing query parameters are cleared before appending the new ones.
- *
- * @param url - The base URL to which the parameters will be appended.
- * @param params - An optional object containing key-value pairs of parameters to append.
- * @returns A new URL object with the appended query parameters.
- */
-const appendParams = (url: URL, params?: Record<string, any>): URL => {
-    const newUrl = new URL(url.href)
-    if (params && Object.keys(params).length) {
-        newUrl.searchParams.forEach((_, key) => {
-            newUrl.searchParams.delete(key)
-        })
-        Object.entries(params).forEach(([key, value]) => {
-            newUrl.searchParams.set(key, value)
-        })
-    }
-    return newUrl
-}
+const FetchHelper = {
+  get: async (endpoint: string, validateTokens: boolean = true) => {
+    let data = {} as any;
+    let statusCode = null;
 
-/**
- * Helper object for making various HTTP requests with automatic token refreshing.
- */
-export const FetchHelper = {
-    get: async (url: URL, params?: Params): Promise<any> => {
-        url = appendParams(url, params)
-        return await axiosInstance({ url: url.toString(), method: "GET" })
-    },
-    post: async (url: URL, data: object, params?: Params): Promise<any> => {
-        url = appendParams(url, params)
-        return await axiosInstance({ url: url.toString(), method: "POST", data })
-    },
-    put: async (url: URL, data: object, params?: Params): Promise<any> => {
-        url = appendParams(url, params)
-        return await axiosInstance({ url: url.toString(), method: "PUT", data })
-    },
-    patch: async (url: URL, data: object, params?: Params): Promise<any> => {
-        url = appendParams(url, params)
-        return await axiosInstance({ url: url.toString(), method: "PATCH", data })
-    },
-    delete: async (url: URL, params?: Params): Promise<any> => {
-        url = appendParams(url, params)
-        return await axiosInstance({ url: url.toString(), method: "DELETE" })
-    },
-    putFileData: async (url: URL, data: any, contentType: string) => {
-        return await fetch(url, {
-            method: "PUT",
-            headers: {
-                "Content-Type": contentType,
-            },
-            body: data,
-        }).then(parseResponse)
-        // no need for catch here as we don't want to swallow errors
-    },
-}
+    if (endpoint.indexOf("live=") === -1) {
+      let modeParam = `live=${!Mode.isDemoToggled()}`;
+      endpoint +=
+        endpoint.indexOf("?") > -1 ? `&${modeParam}` : `?${modeParam}`;
+    }
+
+    await handleValidateTokens(validateTokens);
+
+    data["headers"] = AuthManager.getHeaders(
+      "application/json",
+      validateTokens
+    );
+    const response = await fetch(endpoint, data);
+    statusCode = response.status;
+    const responseJson = await response.json();
+
+    let status = { code: statusCode, success: responseJson.status };
+    if (hasError(status)) {
+      throw getError(responseJson);
+    }
+
+    return responseJson;
+  },
+
+  getPaginated: async (
+    endpoint: string,
+    page: number,
+    validateTokens: boolean = true,
+    pageLimit: number = PAGE_LIMIT
+  ) => {
+    if (endpoint.includes("?")) {
+      endpoint += "&";
+    } else {
+      endpoint += "?";
+    }
+
+    await handleValidateTokens(validateTokens);
+    return FetchHelper.get(endpoint + "page=" + page);
+  },
+
+  post: async (
+    endpoint: string,
+    data: any,
+    isMultiPart: boolean = false,
+    validateTokens: boolean = true
+  ) => {
+    let statusCode = null;
+
+    await handleValidateTokens(validateTokens);
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: isMultiPart
+        ? AuthManager.getHeaders("multipart/form-data", validateTokens)
+        : AuthManager.getHeaders("application/json", validateTokens),
+      body: isMultiPart ? data : JSON.stringify(data),
+    });
+
+    console.log("RESPONSE FETCH HELPER POST", response);
+
+    statusCode = response.status;
+    const responseJson =
+      statusCode === 204 || statusCode === 200
+        ? response
+        : await response.json();
+
+    let status = { code: statusCode, success: responseJson.status };
+    if (hasError(status)) {
+      throw getError(responseJson);
+    }
+
+    return responseJson;
+  },
+
+  put: async (
+    endpoint: string,
+    data: any,
+    stringify: boolean = true,
+    validateTokens: boolean = true
+  ) => {
+    let statusCode = null;
+    await handleValidateTokens(validateTokens);
+    let headers = AuthManager.getHeaders("application/json", validateTokens);
+
+    if (stringify) {
+      data = JSON.stringify(data);
+    } else {
+      headers = AuthManager.getHeaders("multipart/form-data", validateTokens);
+    }
+
+    const response = await fetch(endpoint, {
+      method: "PUT",
+      headers: headers,
+      body: data,
+    });
+    statusCode = response.status;
+    const responseJson = await response.json();
+
+    let status = { code: statusCode, success: responseJson.status };
+    if (hasError(status)) {
+      throw getError(responseJson);
+    }
+
+    return responseJson;
+  },
+
+  patch: async (
+    endpoint: string,
+    data: any,
+    stringify: boolean = true,
+    validateTokens: boolean = true
+  ) => {
+    let statusCode = null;
+    await handleValidateTokens(validateTokens);
+    let headers = AuthManager.getHeaders("application/json", validateTokens);
+
+    if (stringify) {
+      data = JSON.stringify(data);
+    } else {
+      headers = AuthManager.getHeaders("multipart/form-data", validateTokens);
+    }
+
+    const response = await fetch(endpoint, {
+      method: "PATCH",
+      headers: headers,
+      body: data,
+    });
+    statusCode = response.status;
+    const responseJson = await response.json();
+
+    let status = { code: statusCode, success: responseJson.status };
+    if (hasError(status)) {
+      throw getError(responseJson);
+    }
+
+    return responseJson;
+  },
+};
+
+export default FetchHelper;

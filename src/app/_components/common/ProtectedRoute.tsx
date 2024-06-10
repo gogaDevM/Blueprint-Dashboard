@@ -1,4 +1,3 @@
-import { fetchData } from "next-auth/client/_utils";
 import { ReactNode, useLayoutEffect, useState } from "react";
 
 interface ProtectedRouteProps {
@@ -37,6 +36,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = (props) => {
       });
   }, []);
 
+  //TODO: check if you need this part
   //   useEffect((prevProps) => {
   //     if (location !== prevProps.location) {
   //       window.scrollTo({top: 0, left: 0, behavior: 'smooth'})

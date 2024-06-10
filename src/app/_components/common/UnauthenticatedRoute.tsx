@@ -1,7 +1,6 @@
 import { ReactNode, useState, useMemo, useEffect } from "react";
 
-import Auth from "@/_utils/Auth";
-import AuthTokens from "@/_utils/AuthTokens";
+import AuthManager from "@/_utils/AuthManager";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -15,7 +14,7 @@ const UnauthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({
   const fallbackUrl = "/";
 
   const isProtected = () => {
-    return Auth.silentLogin()
+    return AuthManager.silentLogin()
       .then((user) => {
         return false;
       })
